@@ -11,5 +11,18 @@ import Foundation
 struct ApacheLog {
     
     var user: String
-    var request: String
+    var page: String
+    
+    func printLog() {
+        print("\(self.user), \(self.page)")
+    }
+}
+
+extension ApacheLog: Equatable {}
+
+func ==(lhs: ApacheLog, rhs: ApacheLog) -> Bool {
+    let areEqual = lhs.user == rhs.user &&
+        lhs.page == rhs.page
+    
+    return areEqual
 }
