@@ -10,12 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var apacheDictionary = [String:Any]()
     var apacheLog = [ApacheLog]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        downloadApacheLog()
+        apacheDictionary["John"] = "Butt"
+        print(isPageEqual(newPage: "Butt", oldPage: apacheDictionary["John"] as! String?))
+        
+        
+        //downloadApacheLog()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,17 +35,7 @@ class ViewController: UIViewController {
             do {
                 let urlContents = try String(contentsOf: url!, encoding: String.Encoding.utf8)
                 let apacheLogArray = urlContents.components(separatedBy: "\n")
-//                for x in 0...apacheLogArray.count - 2{
-//                    self.apacheLog.append(self.parseApacheLog(with: apacheLogArray[x]))
-//                }
                 
-                for x in 1...2500 {
-                    if self.isThreePageSequence(log: apacheLogArray[x], logBefore: apacheLogArray[x-1], logAfter: apacheLogArray[x+1]) == true {
-                        self.apacheLog.append(self.parseApacheLog(with: apacheLogArray[x]))
-                    }
-                }
-                
-//                print(self.isThreePageSequence(log: apacheLogArray[0], logBefore: apacheLogArray[0], logAfter: apacheLogArray[0]))
                 
                 
             } catch let error as NSError{
@@ -58,33 +53,15 @@ class ViewController: UIViewController {
         let user = with.components(separatedBy: " ")[0]
         let page = with.components(separatedBy: " ")[6]
 
-        return ApacheLog(user: user, page: page)
+        return ApacheLog(user: user, page: page, count: 0)
     }
     
-//    func isThreePageSequence(log: String, logBefore: String, logAfter: String) -> Bool {
-//        
-//        let parsedApacheLog = parseApacheLog(with: log)
-//        let parsedApacheLogBefore = parseApacheLog(with: logBefore)
-//        
-//        parsedApacheLog.printLog()
-//        parsedApacheLogBefore.printLog()
-//        print(parsedApacheLog != parsedApacheLogBefore)
-//        
-//        if parsedApacheLog != parsedApacheLogBefore {
-//            return false
-//        }
-//        
-//        let parsedApacheLogAfter = parseApacheLog(with: logAfter)
-//        parsedApacheLogAfter.printLog()
-//        print(parsedApacheLog != parsedApacheLogAfter)
-//        
-//        if parsedApacheLog != parsedApacheLogAfter {
-//            return false
-//        }
-//        
-//        print("We made it here")
-//        
-//        return true
-//    }
+    func isPageEqual(newPage: String, oldPage: String?) -> Bool {
+        if newPage == oldPage {
+            return true
+        } else {
+            return false
+        }
+    }
 }
 
