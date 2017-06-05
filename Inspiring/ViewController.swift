@@ -61,30 +61,30 @@ class ViewController: UIViewController {
         return ApacheLog(user: user, page: page)
     }
     
-    func isThreePageSequence(log: String, logBefore: String, logAfter: String) -> Bool {
-        
-        let parsedApacheLog = parseApacheLog(with: log)
-        let parsedApacheLogBefore = parseApacheLog(with: logBefore)
-        
-        parsedApacheLog.printLog()
-        parsedApacheLogBefore.printLog()
-        print(parsedApacheLog != parsedApacheLogBefore)
-        
-        if parsedApacheLog != parsedApacheLogBefore {
-            return false
-        }
-        
-        let parsedApacheLogAfter = parseApacheLog(with: logAfter)
-        parsedApacheLogAfter.printLog()
-        print(parsedApacheLog != parsedApacheLogAfter)
-        
-        if parsedApacheLog != parsedApacheLogAfter {
-            return false
-        }
-        
-        print("We made it here")
-        
-        return true
-    }
+//    func isThreePageSequence(log: String, logBefore: String, logAfter: String) -> Bool {
+//        
+//        let parsedApacheLog = parseApacheLog(with: log)
+//        let parsedApacheLogBefore = parseApacheLog(with: logBefore)
+//        
+//        parsedApacheLog.printLog()
+//        parsedApacheLogBefore.printLog()
+//        print(parsedApacheLog != parsedApacheLogBefore)
+//        
+//        if parsedApacheLog != parsedApacheLogBefore {
+//            return false
+//        }
+//        
+//        let parsedApacheLogAfter = parseApacheLog(with: logAfter)
+//        parsedApacheLogAfter.printLog()
+//        print(parsedApacheLog != parsedApacheLogAfter)
+//        
+//        if parsedApacheLog != parsedApacheLogAfter {
+//            return false
+//        }
+//        
+//        print("We made it here")
+//        
+//        return true
+//    }
 }
 
