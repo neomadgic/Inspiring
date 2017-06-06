@@ -15,6 +15,6 @@ struct ApacheLog {
     var count: Int
     
     func printLog() {
-        print("\(self.user), \(self.page)")
+        print("\(self.user), \(self.page), \(self.count)")
     }
 }

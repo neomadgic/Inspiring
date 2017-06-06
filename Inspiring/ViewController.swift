@@ -45,11 +45,10 @@ class ViewController: UIViewController {
                             let oldCount = (self.apacheDictionary[user]?["currentStreak"]?["count"] as? Int)!
                             self.apacheDictionary[user] = ["currentStreak" : ["name": page, "count": oldCount + 1]]
                             if oldCount + 1 >= 3 {
-                                if let threePageCount = self.testDictionary["\(user) \(page) count"] {
+                                if let threePageCount = self.testDictionary["\(user) \(page)"] {
                                     self.testDictionary["\(user) \(page) count"] = threePageCount + 1
                                 } else {
                                     self.testDictionary["\(user) \(page) count"] = 1
-                                    self.apacheLog.append(ApacheLog(user: user, page: page, count: 0))
                                 }
                             }
                             self.letsCount += 1
@@ -73,6 +72,12 @@ class ViewController: UIViewController {
             DispatchQueue.main.async {
                 print(self.apacheDictionary.count)
                 print(self.testDictionary.count)
+                for (key,value) in self.testDictionary {
+                    let user = key.components(separatedBy: " ")[0]
+                    let page = key.components(separatedBy: " ")[1]
+                    let count = value
+                    self.apacheLog.append(ApacheLog(user: user, page: page, count: count))
+                }
                 print(self.apacheLog[0].printLog())
             }
         }
