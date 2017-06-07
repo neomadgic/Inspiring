@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		760AF4511EE37D960072E8DF /* ApacheLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AF4501EE37D960072E8DF /* ApacheLog.swift */; };
 		760AF4521EE37D960072E8DF /* ApacheLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AF4501EE37D960072E8DF /* ApacheLog.swift */; };
+		7682ABE31EE772EE002ECA16 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7682ABE21EE772EE002ECA16 /* NetworkService.swift */; };
+		7682ABE41EE772EE002ECA16 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7682ABE21EE772EE002ECA16 /* NetworkService.swift */; };
 		76FD4D821EE354F5003E5DC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD4D811EE354F5003E5DC0 /* AppDelegate.swift */; };
 		76FD4D841EE354F5003E5DC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD4D831EE354F5003E5DC0 /* ViewController.swift */; };
 		76FD4D871EE354F5003E5DC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76FD4D851EE354F5003E5DC0 /* Main.storyboard */; };
@@ -29,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		760AF4501EE37D960072E8DF /* ApacheLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApacheLog.swift; sourceTree = "<group>"; };
+		7682ABE21EE772EE002ECA16 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		76FD4D7E1EE354F5003E5DC0 /* Inspiring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inspiring.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76FD4D811EE354F5003E5DC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76FD4D831EE354F5003E5DC0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				760AF4501EE37D960072E8DF /* ApacheLog.swift */,
+				7682ABE21EE772EE002ECA16 /* NetworkService.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -239,6 +243,7 @@
 			files = (
 				76FD4D841EE354F5003E5DC0 /* ViewController.swift in Sources */,
 				76FD4D821EE354F5003E5DC0 /* AppDelegate.swift in Sources */,
+				7682ABE31EE772EE002ECA16 /* NetworkService.swift in Sources */,
 				760AF4511EE37D960072E8DF /* ApacheLog.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				760AF4521EE37D960072E8DF /* ApacheLog.swift in Sources */,
+				7682ABE41EE772EE002ECA16 /* NetworkService.swift in Sources */,
 				76FD4D971EE354F5003E5DC0 /* InspiringTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
