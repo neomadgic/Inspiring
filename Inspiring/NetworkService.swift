@@ -12,28 +12,6 @@ class NetworkService {
     
     static var instance = NetworkService()
     
-    func downloadApacheLog(withURL: String, completion : @escaping (_ apacheLogAsString: String, _ error : NSError?) -> Void) {
-    
-        var downloadedString = ""
-        
-        DispatchQueue.global(qos: .background).async {
-            let url = URL(string: withURL)
-            
-            do {
-                let urlContents = try String(contentsOf: url!, encoding: String.Encoding.utf8)
-                downloadedString = urlContents
-            } catch let error as NSError{
-                print(error)
-                completion("", error)
-            }
-            
-            DispatchQueue.main.async {
-            
-                completion(downloadedString, nil)
-            }
-        }
-    }
-    
     func returnParsedApacheLog(withURL: String, completion: @escaping (_ parsedApacheLog: [ApacheLog], _ error: NSError?) -> Void) {
         
         var parsedApacheLogArray = [ApacheLog]()
@@ -56,7 +34,6 @@ class NetworkService {
             DispatchQueue.main.async {
                 completion(parsedApacheLogArray, nil)
             }
-
         }
     }
     
@@ -75,25 +52,6 @@ class NetworkService {
             let user = apacheLogArray[x].components(separatedBy: " ")[0]
             let page = apacheLogArray[x].components(separatedBy: " ")[6]
             
-            //Check if page is the same as the last page from the user
-//            if let oldPage = currentStreakDictionary[user]?["currentStreak"]?["name"] as? String {
-//                if isPageEqual(newPage: page, oldPage: oldPage) {
-//                    
-//                    //Add to the current streak count of that specific user and page
-//                    let newStreakCount = (currentStreakDictionary[user]?["currentStreak"]?["count"] as? Int)! + 1
-//                    currentStreakDictionary[user] = updateCurrentStreak(page: page, count: newStreakCount)
-//                    
-//                    //Add apacheLog to the dictionary if streak is greater than 3
-//                    if newStreakCount >= 3 {
-//                        threePageSequenceDictionary["\(user) \(page)"] = updateThreePageSequence(count: threePageSequenceDictionary["\(user) \(page)"])
-//                    }
-//                } else {
-//                    currentStreakDictionary[user] = updateCurrentStreak(page: page, count: 1)
-//                }
-//            } else {
-//                currentStreakDictionary[user] = updateCurrentStreak(page: page, count: 1)
-//            }
-            
             if isPageEqual(newPage: page, oldPage: currentStreakDictionary[user]?["currentStreak"]?["name"] as? String) {
                 
                 //Add to the current streak count of that specific user and page
@@ -108,9 +66,6 @@ class NetworkService {
                 currentStreakDictionary[user] = updateCurrentStreak(page: page, count: 1)
             }
         }
-        
-        print(threePageSequenceDictionary)
-        print(currentStreakDictionary.count)
         
         for (key,value) in threePageSequenceDictionary {
             let user = key.components(separatedBy: " ")[0]
