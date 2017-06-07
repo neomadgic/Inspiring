@@ -20,6 +20,7 @@ class ViewController: UIViewController {
             
             if error == nil {
                 self.apacheLog = apacheLogArray
+                print(self.apacheLog)
             } else {
                 print(error.debugDescription)
             }
