@@ -10,11 +10,10 @@ import Foundation
 
 struct ApacheLog {
     
-    var user: String
-    var page: String
+    var threePageSequence: String
     var count: Int
     
     func printLog() {
-        print("\(self.user), \(self.page), \(self.count)")
+        print("\(self.threePageSequence), \(self.count)")
     }
 }
