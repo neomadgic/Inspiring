@@ -11,12 +11,11 @@ import Foundation
 class ApacheLogParser {
 
     func parse(apacheLog: String) -> [ApacheLog] {
-        
-        var currentStreakDictionary = [String: [String: [String:Any]]]()
-        var threePageSequenceDictionary = [String:Int]()
+
         var parsedApacheLogArray = [ApacheLog]()
         
         var userDictionary = [String: Int]()
+        var threePageSequenceDictionary = [String:Int]()
         var pagesArray = [[String]]()
         
         //Separate each log into an array
@@ -47,9 +46,6 @@ class ApacheLogParser {
                 pagesArray.append(newUser)
             }
         }
-        
-        print(pagesArray.count)
-        //print(threePageSequenceDictionary)
         
         for (key,value) in threePageSequenceDictionary {
             parsedApacheLogArray.append(ApacheLog(threePageSequence: key, count: value))

@@ -26,29 +26,6 @@ class ViewController: UIViewController {
                 print(self.apacheLog)
             }
         }
-        
-//        NetworkService.instance.downloadApacheLog(withURL: url) { (fullApacheLog, error) in
-//            
-//            if error == nil {
-//                let apacheLogParser = ApacheLogParser()
-//                
-//                DispatchQueue.global(qos: .background).async {
-//                    self.apacheLog = apacheLogParser.parse(apacheLog: fullApacheLog)
-//                    
-//                    DispatchQueue.main.async {
-//                        print(self.apacheLog)
-//                    }
-//                }
-//    
-//            } else {
-//                print(error.debugDescription)
-//            }
-//        }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
