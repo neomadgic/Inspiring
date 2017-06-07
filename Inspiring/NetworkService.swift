@@ -12,10 +12,9 @@ class NetworkService {
     
     static var instance = NetworkService()
     
-    func returnParsedApacheLog(withURL: String, completion: @escaping (_ parsedApacheLog: [ApacheLog], _ error: NSError?) -> Void) {
+    func downloadApacheLog(withURL: String, completion: @escaping (_ fullApacheLog: String, _ error: NSError?) -> Void) {
         
-        let apacheLogParser = ApacheLogParser()
-        var parsedApacheLogArray = [ApacheLog]()
+        var fullApacheLog = ""
         
         //Move into background thread
         DispatchQueue.global(qos: .background).async {
@@ -25,15 +24,15 @@ class NetworkService {
                 
                 //Download content
                 let urlContents = try String(contentsOf: url!, encoding: String.Encoding.utf8)
-                parsedApacheLogArray = apacheLogParser.parse(apacheLog: urlContents)
+                fullApacheLog = urlContents
                 
             } catch let error as NSError{
                 print(error)
-                completion(parsedApacheLogArray, error)
+                completion(fullApacheLog, error)
             }
             
             DispatchQueue.main.async {
-                completion(parsedApacheLogArray, nil)
+                completion(fullApacheLog, nil)
             }
         }
     }

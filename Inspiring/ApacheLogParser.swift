@@ -47,6 +47,10 @@ class ApacheLogParser {
             parsedApacheLogArray.append(ApacheLog(user: user, page: page, count: count))
         }
         
+        parsedApacheLogArray.sort { (apacheLog1, apacheLog2) -> Bool in
+            return apacheLog1.count > apacheLog2.count
+        }
+        
         return parsedApacheLogArray
         
     }
