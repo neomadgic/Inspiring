@@ -12,7 +12,6 @@ class ViewController: UIViewController {
 
     let url = "http://dev.inspiringapps.com/Files/IAChallenge/30E02AAA-B947-4D4B-8FB6-9C57C43872A9/Apache.log"
     var apacheLog = [ApacheLog]()
-    var practArray = [[String]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +21,17 @@ class ViewController: UIViewController {
             if error == nil {
                 let apacheLogParser = ApacheLogParser()
                 
-                self.apacheLog = apacheLogParser.parse(apacheLog: fullApacheLog)
-                print(self.apacheLog)
+                DispatchQueue.global(qos: .background).async {
+                    self.apacheLog = apacheLogParser.parse(apacheLog: fullApacheLog)
+                    
+                    DispatchQueue.main.async {
+                        print(self.apacheLog)
+                    }
+                }
+            } else {
+                print(error.debugDescription)
             }
+            
         }
     }
 }
