@@ -16,16 +16,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NetworkService.instance.downloadApacheLog(withURL: url) { (fullApacheLog, error) in
+        NetworkService.instance.downloadApacheLog(withURL: url) { [weak self](fullApacheLog, error) in
             
             if error == nil {
                 let apacheLogParser = ApacheLogParser()
                 
                 DispatchQueue.global(qos: .background).async {
-                    self.apacheLog = apacheLogParser.parse(apacheLog: fullApacheLog)
+                    self?.apacheLog = apacheLogParser.parse(apacheLog: fullApacheLog)
                     
                     DispatchQueue.main.async {
-                        print(self.apacheLog)
+                        //print(self?.apacheLog)
                     }
                 }
             } else {
