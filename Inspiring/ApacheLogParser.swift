@@ -13,7 +13,6 @@ class ApacheLogParser {
     func parse(apacheLog: String) -> [ApacheLog] {
 
         var parsedApacheLogArray = [ApacheLog]()
-        
         var userDictionary = [String: Int]()
         var pageSequenceDictionary = [String:Int]()
         var pagesArray = [[String]]()
@@ -30,14 +29,9 @@ class ApacheLogParser {
             if let userID = userDictionary[user] {
                 pagesArray[userID].append(page)
                 
+                //If there are 3 pages in the array, add the sequence to the dictionary
                 if pagesArray[userID].count >= 3 {
-                    let sizeOfArray = pagesArray[userID].count
-                    let pageSequence = "\(pagesArray[userID][sizeOfArray-3]), \(pagesArray[userID][sizeOfArray-2]), \(pagesArray[userID][sizeOfArray-1])"
-//                    if let threePageSequenceCount = threePageSequenceDictionary[threePageSequence] {
-//                        threePageSequenceDictionary[threePageSequence] = threePageSequenceCount + 1
-//                    } else {
-//                        threePageSequenceDictionary[threePageSequence] = 1
-//                    }
+                    let pageSequence = getThreePageSequence(fromArray: pagesArray, using: userID)
                     pageSequenceDictionary[pageSequence] = updateDictionary(count: pageSequenceDictionary[pageSequence])
                 }
                 
@@ -65,6 +59,11 @@ class ApacheLogParser {
         } else {
             return 1
         }
+    }
+    
+    func getThreePageSequence(fromArray: [[String]], using: Int) -> String{
+        let sizeOfArray = fromArray[using].count
+        return "\(fromArray[using][sizeOfArray-3]), \(fromArray[using][sizeOfArray-2]), \(fromArray[using][sizeOfArray-1])"
     }
     
     
@@ -114,14 +113,7 @@ class ApacheLogParser {
 //        return parsedApacheLogArray
 //
 //    }
-//    
-//    func updateThreePageSequence(count: Int?) -> Int {
-//        if count != nil {
-//            return count! + 1
-//        } else {
-//            return 1
-//        }
-//    }
+//
 //
 //    func isPageEqual(newPage: String, oldPage: String?) -> Bool {
 //        if newPage == oldPage {
