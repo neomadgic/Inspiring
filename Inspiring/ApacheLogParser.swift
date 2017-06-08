@@ -15,7 +15,7 @@ class ApacheLogParser {
         var parsedApacheLogArray = [ApacheLog]()
         
         var userDictionary = [String: Int]()
-        var threePageSequenceDictionary = [String:Int]()
+        var pageSequenceDictionary = [String:Int]()
         var pagesArray = [[String]]()
         
         //Separate each log into an array
@@ -32,12 +32,13 @@ class ApacheLogParser {
                 
                 if pagesArray[userID].count >= 3 {
                     let sizeOfArray = pagesArray[userID].count
-                    let threePageSequence = "\(pagesArray[userID][sizeOfArray-3]), \(pagesArray[userID][sizeOfArray-2]), \(pagesArray[userID][sizeOfArray-1])"
-                    if let threePageSequenceCount = threePageSequenceDictionary[threePageSequence] {
-                        threePageSequenceDictionary[threePageSequence] = threePageSequenceCount + 1
-                    } else {
-                        threePageSequenceDictionary[threePageSequence] = 1
-                    }
+                    let pageSequence = "\(pagesArray[userID][sizeOfArray-3]), \(pagesArray[userID][sizeOfArray-2]), \(pagesArray[userID][sizeOfArray-1])"
+//                    if let threePageSequenceCount = threePageSequenceDictionary[threePageSequence] {
+//                        threePageSequenceDictionary[threePageSequence] = threePageSequenceCount + 1
+//                    } else {
+//                        threePageSequenceDictionary[threePageSequence] = 1
+//                    }
+                    pageSequenceDictionary[pageSequence] = updateDictionary(count: pageSequenceDictionary[pageSequence])
                 }
                 
             } else {
@@ -47,7 +48,7 @@ class ApacheLogParser {
             }
         }
         
-        for (key,value) in threePageSequenceDictionary {
+        for (key,value) in pageSequenceDictionary {
             parsedApacheLogArray.append(ApacheLog(threePageSequence: key, count: value))
         }
 
@@ -58,8 +59,19 @@ class ApacheLogParser {
         return parsedApacheLogArray
     }
     
+    func updateDictionary(count: Int?) -> Int {
+        if count != nil {
+            return count! + 1
+        } else {
+            return 1
+        }
+    }
+    
+    
+    
+    
 //    func parse(apacheLog: String) -> [ApacheLog] {
-//        
+//
 //        var currentStreakDictionary = [String: [String: [String:Any]]]()
 //        var threePageSequenceDictionary = [String:Int]()
 //        var parsedApacheLogArray = [ApacheLog]()
@@ -110,7 +122,7 @@ class ApacheLogParser {
 //            return 1
 //        }
 //    }
-//    
+//
 //    func isPageEqual(newPage: String, oldPage: String?) -> Bool {
 //        if newPage == oldPage {
 //            return true
