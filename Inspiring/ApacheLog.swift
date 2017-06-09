@@ -12,8 +12,4 @@ struct ApacheLog {
     
     var threePageSequence: String
     var count: Int
-    
-    func printLog() {
-        print("\(self.threePageSequence), \(self.count)")
-    }
 }

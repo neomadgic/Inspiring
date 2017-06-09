@@ -6,6 +6,11 @@
 //  Copyright © 2017 Vu Dang. All rights reserved.
 //
 
+
+/**
+ *  This class creates a singleton that downloads the Apache Log from server
+ */
+
 import Foundation
 
 class NetworkService {
