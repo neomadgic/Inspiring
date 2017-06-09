@@ -25,7 +25,7 @@ class ViewController: UIViewController {
                     self?.apacheLog = apacheLogParser.parse(apacheLog: fullApacheLog)
                     
                     DispatchQueue.main.async {
-                        //print(self?.apacheLog)
+
                     }
                 }
             } else {

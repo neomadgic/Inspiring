@@ -6,6 +6,11 @@
 //  Copyright © 2017 Vu Dang. All rights reserved.
 //
 
+/**
+ *  This class takes an apache log string and parses into an array of ApacheLog
+ *  sorted from most frequent 3-page request.
+ */
+
 import Foundation
 
 class ApacheLogParser {

@@ -15,8 +15,7 @@ class NetworkService {
     func downloadApacheLog(withURL: String, completion: @escaping (_ fullApacheLog: String, _ error: NSError?) -> Void) {
         
         var fullApacheLog = ""
-        
-        //Move into background thread
+
         DispatchQueue.global(qos: .background).async {
             
             let url = URL(string: withURL)
