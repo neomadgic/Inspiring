@@ -18,12 +18,9 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         NetworkService.instance.downloadApacheLog(withURL: url) { [weak self] (fullApacheLog, error) in
-            
             if error == nil {
                 let apacheLogParser = ApacheLogParser()
-                
                 DispatchQueue.global(qos: .background).async {
                     self?.apacheLog = apacheLogParser.parse(apacheLog: fullApacheLog)
                     
@@ -31,10 +28,7 @@ class ViewController: UIViewController, UITableViewDataSource {
                         self?.tableView.reloadData()
                     }
                 }
-            } else {
-                print(error.debugDescription)
             }
-            
         }
     }
 }

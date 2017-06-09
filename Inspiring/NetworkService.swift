@@ -15,6 +15,7 @@ class NetworkService {
     func downloadApacheLog(withURL: String, completion: @escaping (_ fullApacheLog: String, _ error: NSError?) -> Void) {
         
         var fullApacheLog = ""
+        var anError: NSError?
 
         DispatchQueue.global(qos: .background).async {
             
@@ -27,11 +28,11 @@ class NetworkService {
                 
             } catch let error as NSError{
                 print(error)
-                completion(fullApacheLog, error)
+                anError = error
             }
             
             DispatchQueue.main.async {
-                completion(fullApacheLog, nil)
+                completion(fullApacheLog, anError)
             }
         }
     }

@@ -103,13 +103,6 @@
 			name = Essentials;
 			sourceTree = "<group>";
 		};
-		76F16A681EE9F0AD00B9385F /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
 		76FD4D751EE354F4003E5DC0 = {
 			isa = PBXGroup;
 			children = (
@@ -131,7 +124,6 @@
 		76FD4D801EE354F5003E5DC0 /* Inspiring */ = {
 			isa = PBXGroup;
 			children = (
-				76F16A681EE9F0AD00B9385F /* Extensions */,
 				765BD3301EE355D000BB8F8B /* Essentials */,
 				765BD32D1EE355B400BB8F8B /* Model */,
 				765BD32E1EE355B900BB8F8B /* View */,
