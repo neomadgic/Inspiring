@@ -11,6 +11,7 @@
 		760AF4521EE37D960072E8DF /* ApacheLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AF4501EE37D960072E8DF /* ApacheLog.swift */; };
 		7682ABE31EE772EE002ECA16 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7682ABE21EE772EE002ECA16 /* NetworkService.swift */; };
 		7682ABE41EE772EE002ECA16 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7682ABE21EE772EE002ECA16 /* NetworkService.swift */; };
+		7684BD421EEA332400A7B03B /* LogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684BD411EEA332400A7B03B /* LogCell.swift */; };
 		768AD72B1EE87A9900567E8C /* ApacheLogParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768AD72A1EE87A9900567E8C /* ApacheLogParser.swift */; };
 		76FD4D821EE354F5003E5DC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD4D811EE354F5003E5DC0 /* AppDelegate.swift */; };
 		76FD4D841EE354F5003E5DC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD4D831EE354F5003E5DC0 /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		760AF4501EE37D960072E8DF /* ApacheLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApacheLog.swift; sourceTree = "<group>"; };
 		7682ABE21EE772EE002ECA16 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		7684BD411EEA332400A7B03B /* LogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogCell.swift; sourceTree = "<group>"; };
 		768AD72A1EE87A9900567E8C /* ApacheLogParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApacheLogParser.swift; sourceTree = "<group>"; };
 		76FD4D7E1EE354F5003E5DC0 /* Inspiring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inspiring.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76FD4D811EE354F5003E5DC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		765BD32E1EE355B900BB8F8B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7684BD411EEA332400A7B03B /* LogCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 			files = (
 				768AD72B1EE87A9900567E8C /* ApacheLogParser.swift in Sources */,
 				76FD4D841EE354F5003E5DC0 /* ViewController.swift in Sources */,
+				7684BD421EEA332400A7B03B /* LogCell.swift in Sources */,
 				76FD4D821EE354F5003E5DC0 /* AppDelegate.swift in Sources */,
 				7682ABE31EE772EE002ECA16 /* NetworkService.swift in Sources */,
 				760AF4511EE37D960072E8DF /* ApacheLog.swift in Sources */,
